@@ -9,30 +9,28 @@ public class UserInterface {
     private static final Scanner scanner = new Scanner(System.in);
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
-    public void displayMainMenu() {
-        while (true) {
-            showHomeMenu();  // Show the home screen menu
-        }
-    }
-
+    // Display home menu and navigate to order menu
     public void showHomeMenu() {
-        System.out.println("\n=== Home Screen ===");
-        System.out.println("1) New Order");
-        System.out.println("0) Exit");
-        System.out.print("Choose an option: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        while (true) {
+            System.out.println("\n=== Home Screen ===");
+            System.out.println("1) New Order");
+            System.out.println("0) Exit");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
 
-        switch (choice) {
-            case 1 -> showOrderMenu();  // Start a new order
-            case 0 -> {
-                System.out.println("Exiting application. Goodbye!");  // Exit the app
-                System.exit(0);
+            switch (choice) {
+                case 1 -> showOrderMenu();
+                case 0 -> {
+                    System.out.println("Exiting application. Goodbye!");
+                    System.exit(0);
+                }
+                default -> System.out.println("Invalid option. Please try again.");
             }
-            default -> System.out.println("Invalid option. Please try again.");
         }
     }
 
+    // Display order menu, where user can add items to the order
     public void showOrderMenu() {
         while (true) {
             System.out.println("\n=== Order Menu ===");
@@ -46,27 +44,27 @@ public class UserInterface {
             scanner.nextLine(); // consume newline
 
             switch (choice) {
-                case 1 -> selectSandwich();  // Add a sandwich to the order
+                case 1 -> selectSandwich();
                 case 2 -> System.out.println("Drink menu coming soon...");
                 case 3 -> System.out.println("Chips menu coming soon...");
                 case 4 -> {
                     System.out.println("Checkout screen coming soon...");
-                    return; // Exit back to home after checkout
+                    return; // back to home screen after checkout
                 }
                 case 0 -> {
                     System.out.println("Order canceled. Returning to home screen.");
-                    return;  // Return to home screen if the order is canceled
+                    return; // back to home screen
                 }
                 default -> System.out.println("Invalid option. Please try again.");
             }
         }
     }
 
+    // Select a sandwich and build it with the user's choices
     public void selectSandwich() {
-        // Sandwich building process
         System.out.println("\nLet's build your sandwich!");
 
-        // Select size
+        // Select sandwich size
         System.out.println("Choose sandwich size (4, 8, or 12 inches):");
         int size = scanner.nextInt();
         scanner.nextLine(); // consume newline
@@ -187,13 +185,5 @@ public class UserInterface {
         System.out.println("Sauces: " + sauces);
         System.out.println("Toasted: " + (isToasted ? "Yes" : "No"));
         System.out.println("Total Sandwich Price: $" + df.format(totalSandwichPrice));
-
-        // Ask if user wants to add another item
-        System.out.print("Would you like to add another item? (yes/no): ");
-        String addAnother = scanner.nextLine().trim().toLowerCase();
-        if (addAnother.equals("no")) {
-            System.out.println("Returning to the order menu...");
-            return;  // Return to the order menu
-        }
     }
 }
