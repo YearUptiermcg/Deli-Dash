@@ -1,51 +1,35 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich {
     private String size;
     private String breadType;
-    private double basePrice;
-    private List<Topping> toppings;
+    private double price;
+    private List<String> regularToppings;
+    private List<String> premiumToppings;
+    private boolean toasted;
 
-    public Sandwich(String size, String breadType, double basePrice) {
+    public Sandwich(String size, String breadType, double price, List<String> regularToppings, List<String> premiumToppings, boolean toasted) {
         this.size = size;
         this.breadType = breadType;
-        this.basePrice = basePrice;
-        this.toppings = new ArrayList<>();
+        this.price = price;
+        this.regularToppings = regularToppings;
+        this.premiumToppings = premiumToppings;
+        this.toasted = toasted;
     }
 
-    // Getter and setter methods
-    public String getSize() {
-        return size;
+    public double getPrice() {
+        return price;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public String getBreadType() {
-        return breadType;
-    }
-
-    public void setBreadType(String breadType) {
-        this.breadType = breadType;
-    }
-
-    public double getBasePrice() {
-        return basePrice;
-    }
-
-    public void setBasePrice(double basePrice) {
-        this.basePrice = basePrice;
-    }
-
-    public List<Topping> getToppings() {
-        return toppings;
-    }
-
-    public void addTopping(Topping topping) {
-        this.toppings.add(topping);
+    @Override
+    public String toString() {
+        return String.format("%s sandwich on %s bread, toasted: %b, regular toppings: %s, premium toppings: %s, price: $%.2f",
+                size, breadType, toasted, regularToppings, premiumToppings, price);
     }
 }
