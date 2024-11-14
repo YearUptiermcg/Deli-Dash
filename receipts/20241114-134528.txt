@@ -1,0 +1,19 @@
+========================================
+              DELI-cious
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-14 13:45:28
+----------------------------------------
+Customer: Tierney
+Chips: Sour Cream & Onion
+Drink: Cherry Coke (Large)
+12-inch wrap bread, Toasted: Yes
+Regular Toppings: [lettuce, onion, tomag]
+Premium Meats: [bacon]
+Premium Cheeses: [american]
+Sauces: [ranch]
+Total: $17.75
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-cious!
+========================================
