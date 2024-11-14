@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import com.pluralsight.util.ReceiptManager;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,6 @@ public class UserInterface {
     static Scanner scanner = new Scanner(System.in);
     static DecimalFormat df = new DecimalFormat("#.00");
 
-    //Home Screen
     public void displayMenu() {
         while (true) {
             System.out.println("\n=== Welcome to DELI-Dash ===");
@@ -22,7 +22,7 @@ public class UserInterface {
 
             switch (choice) {
                 case 1:
-                    displayOrderMenu();  // Initiate order menu
+                    orderMenu();
                     break;
                 case 0:
                     System.out.println("Goodbye! Come back soon.");
@@ -33,10 +33,13 @@ public class UserInterface {
         }
     }
 
-    // Display Order Menu
-    private void displayOrderMenu() {
-        List<String> orderItems = new ArrayList<>();
-        double totalPrice = 0.0;
+    private void orderMenu() {
+        List<String> orderDetails = new ArrayList<>();
+        double totalPrice = 0;
+        String customerName = "";
+
+        System.out.print("\nPlease enter your name: ");
+        customerName = scanner.nextLine();
 
         while (true) {
             System.out.println("\n=== Order Menu ===");
@@ -44,52 +47,40 @@ public class UserInterface {
             System.out.println("2) Add Drink");
             System.out.println("3) Add Chips");
             System.out.println("4) Checkout");
-            System.out.println("0) Cancel Order and Return to Main Menu");
+            System.out.println("0) Cancel Order");
 
-            System.out.print("Choose an option: ");
+            System.out.print("Please select an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
 
             switch (choice) {
                 case 1:
-                    String sandwich = selectSandwich();
-                    orderItems.add("Sandwich: " + sandwich);
-                    totalPrice += calculateSandwichPrice(sandwich);
-                    System.out.println("Sandwich added to order.");
+                    totalPrice += addSandwich(orderDetails);
                     break;
                 case 2:
-                    String drink = selectDrink();
-                    orderItems.add("Drink: " + drink);
-                    totalPrice += extractPrice(drink);
-                    System.out.println("Drink added to order.");
+                    totalPrice += addDrink(orderDetails);
                     break;
                 case 3:
-                    String chips = selectChips();
-                    orderItems.add("Chips: " + chips);
-                    totalPrice += 1.50; // Chips are always $1.50
-                    System.out.println("Chips added to order.");
+                    totalPrice += addChips(orderDetails);
                     break;
                 case 4:
-                    checkout(orderItems, totalPrice);
-                    return;  // Exit after checkout
+                    checkout(orderDetails, totalPrice, customerName);
+                    return; // End the order process
                 case 0:
-                    System.out.println("Order canceled. Returning to main menu.");
-                    return;
+                    System.out.println("Order canceled.");
+                    return; // Return to the home screen
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
         }
     }
 
-    private String selectSandwich() {
+    private double addSandwich(List<String> orderDetails) {
         System.out.println("\nLet's build your sandwich!");
-
-        System.out.print("What is your name? ");
-        String customerName = scanner.nextLine();
 
         System.out.println("Choose sandwich size (4, 8, or 12 inches):");
         int size = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // Consume newline
 
         double basePrice = switch (size) {
             case 4 -> 5.50;
@@ -113,7 +104,6 @@ public class UserInterface {
             System.out.println("Added: " + topping);
         }
 
-        // Ask for premium toppings (meats and cheeses) with extra options
         List<String> premiumMeats = new ArrayList<>();
         double meatCost = switch (size) {
             case 4 -> 1.00;
@@ -135,7 +125,6 @@ public class UserInterface {
             premiumMeats.add(meat);
             System.out.println("Added meat: " + meat);
 
-            // Option for extra meat
             System.out.print("Would you like extra meat (additional $" + df.format(extraMeatCost) + ")? (yes/no): ");
             String extraMeat = scanner.nextLine().trim().toLowerCase();
             if (extraMeat.equals("yes")) {
@@ -150,6 +139,12 @@ public class UserInterface {
             case 12 -> 2.25;
             default -> 0.75;
         };
+        double extraCheeseCost = switch (size) {
+            case 4 -> 0.30;
+            case 8 -> 0.60;
+            case 12 -> 0.90;
+            default -> 0.30;
+        };
         System.out.println("Each cheese topping costs an additional $" + df.format(cheeseCost) + " for a " + size + "-inch sandwich.");
         System.out.println("Select premium cheeses (american, provolone, cheddar, swiss). Type 'done' to finish:");
         while (true) {
@@ -158,8 +153,7 @@ public class UserInterface {
             premiumCheeses.add(cheese);
             System.out.println("Added cheese: " + cheese);
 
-            // Option for extra cheese
-            System.out.print("Would you like extra cheese (additional $" + df.format(cheeseCost) + ")? (yes/no): ");
+            System.out.print("Would you like extra cheese (additional $" + df.format(extraCheeseCost) + ")? (yes/no): ");
             String extraCheese = scanner.nextLine().trim().toLowerCase();
             if (extraCheese.equals("yes")) {
                 System.out.println("Added extra cheese: " + cheese);
@@ -175,92 +169,105 @@ public class UserInterface {
             System.out.println("Added sauce: " + sauce);
         }
 
-        // Summarizing sandwich choices
-        return size + "-inch " + breadType + " with " + regularToppings + " and " + premiumMeats + " and " + premiumCheeses;
+        // Toast option added here
+        System.out.println("Would you like your bread toasted? (yes/no): ");
+        String toastOption = scanner.nextLine().trim().toLowerCase();
+        boolean toasted = toastOption.equals("yes");
+
+        double totalSandwichPrice = basePrice + (premiumMeats.size() * meatCost) + (premiumCheeses.size() * cheeseCost);
+        orderDetails.add(size + "-inch " + breadType + " bread, Toasted: " + (toasted ? "Yes" : "No"));
+        orderDetails.add("Regular Toppings: " + regularToppings);
+        orderDetails.add("Premium Meats: " + premiumMeats);
+        orderDetails.add("Premium Cheeses: " + premiumCheeses);
+        orderDetails.add("Sauces: " + sauces);
+
+        System.out.println("\n=== Sandwich Details ===");
+        System.out.println("Size: " + size + "-inch " + breadType + " bread");
+        System.out.println("Regular Toppings: " + regularToppings);
+        System.out.println("Premium Meats: " + premiumMeats);
+        System.out.println("Premium Cheeses: " + premiumCheeses);
+        System.out.println("Sauces: " + sauces);
+        System.out.println("Toasted: " + (toasted ? "Yes" : "No"));
+        System.out.println("Total Sandwich Price: $" + df.format(totalSandwichPrice));
+
+        return totalSandwichPrice;
     }
 
-    private double calculateSandwichPrice(String sandwich) {
-        // Basic price calculation based on size - adjust as needed
-        if (sandwich.contains("4-inch")) return 5.50;
-        if (sandwich.contains("8-inch")) return 7.00;
-        if (sandwich.contains("12-inch")) return 8.50;
-        return 0.0;
+    private double addDrink(List<String> orderDetails) {
+        List<String> drinks = new ArrayList<>();
+        double totalDrinkPrice = 0;
+
+        System.out.println("\nWould you like to add a drink? (yes/no): ");
+        String wantDrinks = scanner.nextLine().trim().toLowerCase();
+        if (wantDrinks.equals("yes")) {
+            System.out.println("Select drink size:\n1. Small ($1.50)\n2. Medium ($2.00)\n3. Large ($2.50)");
+            int sizeOption = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            double drinkPrice = switch (sizeOption) {
+                case 1 -> 1.50;
+                case 2 -> 2.00;
+                case 3 -> 2.50;
+                default -> 1.50;
+            };
+
+            System.out.println("Select drink flavor:\n1. Cherry Cola\n2. Lemonade\n3. Iced Tea\n4. Water");
+            int flavorOption = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            String drinkFlavor = switch (flavorOption) {
+                case 1 -> "Cherry Coke";
+                case 2 -> "Lemonade";
+                case 3 -> "Iced Tea";
+                case 4 -> "Water";
+                default -> "Cherry Cola";
+            };
+
+            drinks.add(drinkFlavor);
+            orderDetails.add("Drink: " + drinkFlavor + " (" + (sizeOption == 1 ? "Small" : sizeOption == 2 ? "Medium" : "Large") + ")");
+            System.out.println("Total Drink Price: $" + df.format(drinkPrice));
+            totalDrinkPrice += drinkPrice;
+        }
+
+        return totalDrinkPrice;
     }
 
-    private String selectDrink() {
-        System.out.println("Choose drink size:\n1. Small ($1.50)\n2. Medium ($2.00)\n3. Large ($2.50)");
-        int sizeOption = scanner.nextInt();
-        scanner.nextLine();
+    private double addChips(List<String> orderDetails) {
+        System.out.println("\nWould you like to add chips? (yes/no): ");
+        String wantChips = scanner.nextLine().trim().toLowerCase();
+        if (wantChips.equals("yes")) {
+            System.out.println("Select chip flavor:\n1. Classic ($1.50)\n2. BBQ ($1.50)\n3. Sour Cream & Onion ($1.50)");
+            int flavorOption = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
-        double drinkPrice = switch (sizeOption) {
-            case 1 -> 1.50;
-            case 2 -> 2.00;
-            case 3 -> 2.50;
-            default -> 1.50;
-        };
-        String sizeLabel = switch (sizeOption) {
-            case 1 -> "Small";
-            case 2 -> "Medium";
-            case 3 -> "Large";
-            default -> "Small";
-        };
-
-        System.out.println("Select drink flavor:\n1. Lemonade\n2. Cherry Coke\n3. Water\n4. Sprite");
-        int flavorOption = scanner.nextInt();
-        scanner.nextLine();
-
-        String flavor = switch (flavorOption) {
-            case 1 -> "Lemonade";
-            case 2 -> "Cherry Coke";
-            case 3 -> "Water";
-            case 4 -> "Sprite";
-            default -> "Lemonade";
-        };
-
-        return sizeLabel + " " + flavor + " - $" + df.format(drinkPrice);
+            double chipPrice = 1.50;
+            String chipFlavor = switch (flavorOption) {
+                case 1 -> "Classic";
+                case 2 -> "BBQ";
+                case 3 -> "Sour Cream & Onion";
+                default -> "Classic";
+            };
+            orderDetails.add("Chips: " + chipFlavor);
+            System.out.println("Total Chips Price: $" + df.format(chipPrice));
+            return chipPrice;
+        } else {
+            return 0.0;
+        }
     }
 
-    private String selectChips() {
-        System.out.println("Choose chip type:\n1. Potato Chips\n2. Red Doritos\n3. Blue Doritos");
-        int chipOption = scanner.nextInt();
-        scanner.nextLine();
-
-        String chipType = switch (chipOption) {
-            case 1 -> "Potato Chips";
-            case 2 -> "Red Doritos";
-            case 3 -> "Blue Doritos";
-            default -> "Potato Chips";
-        };
-
-        return chipType;
-    }
-
-    private double extractPrice(String item) {
-        if (item.contains("Small")) return 1.50;
-        if (item.contains("Medium")) return 2.00;
-        if (item.contains("Large")) return 2.50;
-        return 0.0;
-    }
-
-    private void checkout(List<String> orderItems, double totalPrice) {
+    private void checkout(List<String> orderDetails, double totalPrice, String customerName) {
         System.out.println("\n=== Checkout ===");
-        for (String item : orderItems) {
-            System.out.println(item);
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Order Details:");
+        for (String detail : orderDetails) {
+            System.out.println(detail);
         }
         System.out.println("Total Price: $" + df.format(totalPrice));
 
-        System.out.print("Would you like to confirm the order? (yes/no): ");
-        String confirmation = scanner.nextLine().toLowerCase();
+        // Create the receipt content
+        String receipt = "Customer: " + customerName + "\n" + String.join("\n", orderDetails) + "\nTotal: $" + df.format(totalPrice);
 
-        if (confirmation.equals("yes")) {
-            System.out.println("Order confirmed. Thank you for choosing DELI-cious!");
-        } else {
-            System.out.println("Order canceled.");
-        }
-    }
-
-    public static void main(String[] args) {
-        UserInterface ui = new UserInterface();
-        ui.displayMenu();
+        // Save the receipt
+        ReceiptManager.saveReceipt(receipt);
     }
 }

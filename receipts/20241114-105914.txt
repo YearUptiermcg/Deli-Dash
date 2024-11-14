@@ -1,0 +1,10 @@
+=== Receipt ===
+Drink: Large Cherry Coke
+Chips: 1.50
+Sandwich: 8-inch white bread, Toasted: yes
+Regular Toppings: [lettuce, peppers]
+Premium Meats: [salami]
+Premium Cheeses: [american]
+Sauces: [bbq]
+
+Total: $14.50
