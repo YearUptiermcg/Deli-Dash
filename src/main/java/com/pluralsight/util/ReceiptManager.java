@@ -5,11 +5,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 public class ReceiptManager {
-    // Updated saveReceipt method to accept more parameters
-    public static void saveReceipt(String receipt, String customerName, List<String> toppings, List<String> cheeses, List<String> meats, boolean isToasted) {
+
+    // Method to save the receipt to a file in the "receipts" directory
+    public static void saveReceipt(String receipt) {
         // Ensure the receipts directory exists
         File directory = new File("receipts");
         if (!directory.exists()) {
@@ -20,7 +20,7 @@ public class ReceiptManager {
         String filename = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
 
         // Construct the formatted receipt content
-        String formattedReceipt = generateReceiptDesign(receipt, customerName, toppings, cheeses, meats, isToasted);
+        String formattedReceipt = generateReceiptDesign(receipt);
 
         // Try writing the receipt to the file
         try (FileWriter writer = new FileWriter(new File(directory, filename))) {
@@ -32,43 +32,26 @@ public class ReceiptManager {
     }
 
     // Method to generate a visually formatted receipt design
-    private static String generateReceiptDesign(String receipt, String customerName, List<String> toppings, List<String> cheeses, List<String> meats, boolean isToasted) {
+    private static String generateReceiptDesign(String receipt) {
+        // Current date and time for the header
         String currentDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
+        // Start the receipt design with a header
         StringBuilder receiptBuilder = new StringBuilder();
         receiptBuilder.append("========================================\n");
-        receiptBuilder.append("                DELI-Dash\n");
+        receiptBuilder.append("              DELI-cious\n");
         receiptBuilder.append("          Sandwich Shop Receipt\n");
         receiptBuilder.append("========================================\n");
-        receiptBuilder.append("Date: ").append(currentDate).append("\n");
-        receiptBuilder.append("Customer: ").append(customerName).append("\n");
+        receiptBuilder.append("Date: " + currentDate + "\n");
         receiptBuilder.append("----------------------------------------\n");
 
-        // Add toppings, cheeses, meats, and toasted status to the receipt
-        if (!toppings.isEmpty()) {
-            receiptBuilder.append("Toppings: ").append(String.join(", ", toppings)).append("\n");
-        } else {
-            receiptBuilder.append("Toppings: None\n");
-        }
-
-        if (!cheeses.isEmpty()) {
-            receiptBuilder.append("Cheeses: ").append(String.join(", ", cheeses)).append("\n");
-        } else {
-            receiptBuilder.append("Cheeses: None\n");
-        }
-
-        if (!meats.isEmpty()) {
-            receiptBuilder.append("Meats: ").append(String.join(", ", meats)).append("\n");
-        } else {
-            receiptBuilder.append("Meats: None\n");
-        }
-
-        receiptBuilder.append("Toasted: ").append(isToasted ? "Yes" : "No").append("\n");
-        receiptBuilder.append("----------------------------------------\n");
+        // Add the order details
         receiptBuilder.append(receipt);
+
+        // Footer with a thank you note
         receiptBuilder.append("\n----------------------------------------\n");
         receiptBuilder.append("Thank you for your order!\n");
-        receiptBuilder.append("Visit us again soon at DELI-Dash!\n");
+        receiptBuilder.append("Visit us again soon at DELI-cious!\n");
         receiptBuilder.append("========================================\n");
 
         return receiptBuilder.toString();

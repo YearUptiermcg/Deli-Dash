@@ -1,0 +1,17 @@
+========================================
+              DELI-cious
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 14:43:18
+----------------------------------------
+Customer: Tierney
+12-inch white bread, Toasted: Yes
+Regular Toppings: [lettuce]
+Premium Meats: [steak]
+Premium Cheeses: [american]
+Sauces: [honey mustard]
+Total: $13.75
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-cious!
+========================================

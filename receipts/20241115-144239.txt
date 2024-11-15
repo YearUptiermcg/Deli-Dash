@@ -1,0 +1,14 @@
+========================================
+              DELI-cious
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 14:42:39
+----------------------------------------
+Customer: Tierney
+Drink: Water (Large)
+Chips: Classic
+Total: $4.00
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-cious!
+========================================

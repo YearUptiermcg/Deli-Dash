@@ -1,0 +1,20 @@
+========================================
+                DELI-Dash
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 14:31:27
+Customer: Tierney
+----------------------------------------
+Toppings: Lettuce, Tomato, Pickles, Cucumbers, Jalapeños, Onions, Olives, Spinach, Bell Peppers, Avocado, Banana Peppers, Mushrooms, Arugula, Carrots, Cilantro
+Cheeses: Cheddar, Swiss, American, Provolone, Mozzarella, Pepper Jack, Blue Cheese, Feta, Gouda, Parmesan
+Meats: Turkey, Bacon, Ham, Chicken, Roast Beef, Salami, Tuna, Pepperoni, Sausage, Grilled Chicken, Pastrami, Veggie Patty
+Toasted: Yes
+----------------------------------------
+Customer: Tierney
+
+Sandwich (12-inch): $13.75
+Total: $13.75
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-Dash!
+========================================
