@@ -1,0 +1,20 @@
+========================================
+                DELI-Dash
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 13:51:31
+Customer: Tierney
+----------------------------------------
+Toppings: Lettuce, Tomato, Pickles
+Cheeses: Cheddar, Swiss
+Meats: Turkey, Bacon
+Toasted: Yes
+----------------------------------------
+Customer: Tierney
+
+Sandwich (4-inch): $7.25
+Total: $7.25
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-Dash!
+========================================

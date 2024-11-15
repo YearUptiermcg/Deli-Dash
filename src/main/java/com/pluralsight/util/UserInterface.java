@@ -243,7 +243,7 @@ public class UserInterface {
         }
 
         // Sauces - List of sauces
-        List<String> sauces = List.of("Ketchup", "Mustard", "Mayo", "Au Jus");
+        List<String> sauces = List.of("Ranch", "Mustard", "Mayo", "Au Jus");
         System.out.println("\nSelect sauces (choose number, no extra charge):");
         for (int i = 0; i < sauces.size(); i++) {
             System.out.println((i + 1) + ". " + sauces.get(i));
@@ -262,7 +262,7 @@ public class UserInterface {
     private double addDrink(List<String> orderDetails) {
         // Drink options - list of flavors
         System.out.println("\nSelect drink flavor:");
-        System.out.println("1. Cherry Cola");
+        System.out.println("1. Cherry Coke");
         System.out.println("2. Lemonade");
         System.out.println("3. Iced Tea");
         System.out.println("4. Water");
@@ -270,7 +270,7 @@ public class UserInterface {
         scanner.nextLine(); // Consume newline
 
         String drinkFlavor = switch (flavorOption) {
-            case 1 -> "Cherry Cola";
+            case 1 -> "Cherry Coke";
             case 2 -> "Lemonade";
             case 3 -> "Iced Tea";
             case 4 -> "Water";
@@ -330,8 +330,7 @@ public class UserInterface {
         System.out.println("\n=== Checkout ===");
         System.out.println("Customer Name: " + customerName);
         System.out.println("Order Details:");
-        for (String detail : orderDetails) {
-            System.out.println(detail);
+        for (String detail : orderDetails) {System.out.println(detail);
         }
         System.out.println("Total Price: $" + df.format(totalPrice));
 
@@ -342,7 +341,7 @@ public class UserInterface {
         boolean isToasted = true; // Example whether the sandwich is toasted or not
 
         // Display the toppings, cheeses, meats, and toasting status during checkout
-        System.out.println("\n=== Sandwich Customization ===");
+        System.out.println("\n=== Sandwich Order ===");
 
         System.out.println("Toppings: " + (toppings.isEmpty() ? "None" : String.join(", ", toppings)));
         System.out.println("Cheeses: " + (cheeses.isEmpty() ? "None" : String.join(", ", cheeses)));
