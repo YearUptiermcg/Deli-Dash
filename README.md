@@ -17,26 +17,23 @@ The **DELI-Dash Sandwich Shop POS System** is a point-of-sale application design
 ---
 
 ## Screenshots
-
-### Main Menu
-<<<<<<< HEAD
-![Main Menu](screenshots/main_menu.png)
-
-### Order Menu
-![Order Menu](screenshots/order_menu.png)
-
-### Receipt Example
-![Receipt Example](screenshots/receipt_example.png)
-=======
-![Main Menu](src/screenshots/main_menu.PNG)
-
-### Order Menu
-![Order Menu](src/screenshots/order_menu.PNG)
-
-### Receipt Example
-![Receipt Example](src/screenshots/receipt_example.PNG)
->>>>>>> 57dd7c538da5a3c21b727c8f5ef344229c89bf90
-
+#Main Menu 
+<img width="217" alt="main_menu" src="https://github.com/user-attachments/assets/b341ef11-803b-49dd-9720-6680f9fe394c">
+-------------------------------------------------------------------------------------------------------------------
+#Order Menu
+<img width="307" alt="order_menu" src="https://github.com/user-attachments/assets/e655fec5-7b5c-40b4-95dd-a543903b94d9">
+--------------------------------------------------------------------------------------------------------------------
+#Drinks Menu 
+<img width="363" alt="drink_menu" src="https://github.com/user-attachments/assets/f3bfb484-652f-485d-984a-cd1aeabfd468">
+--------------------------------------------------------------------------------------------------------------------
+#Chips Menu
+<img width="303" alt="chips_menu" src="https://github.com/user-attachments/assets/56c33887-a38a-439b-b808-8ec39e99587f">
+--------------------------------------------------------------------------------------------------------------------
+#Sauces Menu
+<img width="233" alt="sauces" src="https://github.com/user-attachments/assets/60f982fb-c983-4427-beef-2c93a6c3c34d">
+----------------------------------------------------------------------------------------------------------------------
+#Toppings Menu
+<img width="238" alt="toppings" src="https://github.com/user-attachments/assets/93c4961d-b0c4-4d8a-95eb-0e2bbebed62b">
 ---
 
 ## Interesting Code Section
