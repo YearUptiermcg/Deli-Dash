@@ -1,2 +1,0 @@
-[Tierney ordered a 12-inch sandwich, base price: $8.50, Regular toppings: [lettuce], Premium meats: [salami], Premium cheeses: [swiss, yes], Sauces: [ranch]]
-Total: $128.50
