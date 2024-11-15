@@ -1,0 +1,5 @@
+Customer: Tierney
+Chips (BBQ): $1.50
+
+Sandwich (12-inch): $13.75
+Total: $15.25

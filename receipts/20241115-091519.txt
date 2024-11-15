@@ -1,0 +1,16 @@
+========================================
+              DELI-Dash
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 09:15:19
+----------------------------------------
+Customer: Olivia
+Drink (Large - Cherry Cola): $3.00
+Chips (Salt & Vinegar): $1.50
+
+Sandwich (4-inch): $8.25
+Total: $12.75
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-Dash!
+========================================
