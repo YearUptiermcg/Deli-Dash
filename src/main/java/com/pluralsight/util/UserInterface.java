@@ -2,6 +2,7 @@ package com.pluralsight.util;
 
 import com.pluralsight.util.ReceiptManager;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -325,7 +326,7 @@ public class UserInterface {
         return chipPrice;
     }
 
-    private void checkout(List<String> orderDetails, double totalPrice, String customerName) {
+    public void checkout(List<String> orderDetails, double totalPrice, String customerName) {
         System.out.println("\n=== Checkout ===");
         System.out.println("Customer Name: " + customerName);
         System.out.println("Order Details:");
@@ -334,11 +335,25 @@ public class UserInterface {
         }
         System.out.println("Total Price: $" + df.format(totalPrice));
 
-        // Create the receipt content
+        // Detailed lists of toppings, meats, and cheeses
+        List<String> toppings = Arrays.asList("Lettuce", "Tomato", "Pickles"); // Example selected toppings
+        List<String> cheeses = Arrays.asList("Cheddar", "Swiss"); // Example selected cheeses
+        List<String> meats = Arrays.asList("Turkey", "Bacon"); // Example selected meats
+        boolean isToasted = true; // Example whether the sandwich is toasted or not
+
+        // Display the toppings, cheeses, meats, and toasting status during checkout
+        System.out.println("\n=== Sandwich Customization ===");
+
+        System.out.println("Toppings: " + (toppings.isEmpty() ? "None" : String.join(", ", toppings)));
+        System.out.println("Cheeses: " + (cheeses.isEmpty() ? "None" : String.join(", ", cheeses)));
+        System.out.println("Meats: " + (meats.isEmpty() ? "None" : String.join(", ", meats)));
+        System.out.println("Toasted: " + (isToasted ? "Yes" : "No"));
+
+        // Create the receipt content (basic receipt details)
         String receipt = "Customer: " + customerName + "\n" + String.join("\n", orderDetails) + "\nTotal: $" + df.format(totalPrice);
 
-        // Save the receipt
-        ReceiptManager.saveReceipt(receipt);
+        // Save the receipt with all the required details
+        ReceiptManager.saveReceipt(receipt, customerName, toppings, cheeses, meats, isToasted);
     }
 
     public static void main(String[] args) {

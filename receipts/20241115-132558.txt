@@ -1,15 +1,21 @@
 ========================================
-              DELI-Dash
+                DELI-Dash
           Sandwich Shop Receipt
 ========================================
-Date: 2024-11-15 08:56:11
+Date: 2024-11-15 13:25:58
+Customer: Tierney
 ----------------------------------------
-Customer: Olivia
+Toppings: Lettuce, Tomato, Pickles
+Cheeses: Cheddar, Swiss
+Meats: Turkey, Bacon
+Toasted: Yes
+----------------------------------------
+Customer: Tierney
 
-Sandwich (12-inch): $13.75
+Sandwich (12-inch): $16.75
 Drink (Large - Cherry Cola): $3.00
-Chips (BBQ): $1.50
-Total: $18.25
+Chips (Salt & Vinegar): $1.50
+Total: $21.25
 ----------------------------------------
 Thank you for your order!
 Visit us again soon at DELI-Dash!

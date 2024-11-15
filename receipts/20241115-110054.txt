@@ -2,12 +2,12 @@
               DELI-Dash
           Sandwich Shop Receipt
 ========================================
-Date: 2024-11-15 08:52:06
+Date: 2024-11-15 11:00:54
 ----------------------------------------
-Customer: Lilly
+Customer: Alexa
 
-Sandwich (8-inch): $10.50
-Total: $10.50
+Sandwich (4-inch): $7.25
+Total: $7.25
 ----------------------------------------
 Thank you for your order!
 Visit us again soon at DELI-Dash!
