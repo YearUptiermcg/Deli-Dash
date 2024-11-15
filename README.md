@@ -1,39 +1,83 @@
 # DELI-Dash: Sandwich Shop POS System
 
-## Overview
-
-The **DELI-Dash Sandwich Shop POS System** is a point-of-sale application designed to streamline and automate sandwich orders for a sandwich shop. It allows customers to customize their sandwiches, add chips and drinks, view their order details, and generate a receipt. The application adheres to object-oriented programming principles, ensuring maintainability and scalability.
+## Project Overview
+DELI-Dash is a point-of-sale (POS) Java application designed to streamline the sandwich ordering process for customers in a sandwich shop. It allows customers to:
+- Customize their sandwiches with different sizes, breads, toppings, and sauces.
+- Add drinks and chips to their orders.
+- View the order summary and confirm or cancel their orders.
+- Generate and save receipts with a timestamped filename for each transaction.
 
 ---
 
 ## Features
 
-- **Order Customization**: Customers can specify sandwich size, bread type, toppings, sauces, and extras.
-- **Chips and Drinks**: Select from a predefined list of chips and drinks, with chips priced at $1.50 each.
-- **User-Friendly Checkout**: Displays order summary and allows customers to confirm their orders.
-- **Receipt Management**: Generates a well-designed, timestamped receipt and saves it in the `receipts` folder.
-- **Reusability**: After completing an order, the system loops back to the main menu, enabling multiple transactions.
+### Home Screen:
+- **Start New Order**: Begin a new sandwich order.
+- **Exit**: Exit the application.
+
+### Order Customization Screen:
+- **Sandwich Options**:
+  - Choose bread type (4-inch, 8-inch, or 12-inch).
+  - Select regular and premium toppings.
+  - Choose sauces, with options for toasting the sandwich.
+- **Add Chips & Drinks**:
+  - Select a chip flavor ($1.50 each).
+  - Choose drink size (Small, Medium, Large) with corresponding prices.
+- **Order Review**: View selected items before proceeding to checkout.
+
+### Checkout Screen:
+- Review the final order with detailed price breakdown.
+- Confirm the order or cancel it.
+- Save the receipt in a timestamped `.txt` file.
 
 ---
 
-## Screenshots
-#Main Menu 
-<img width="217" alt="main_menu" src="https://github.com/user-attachments/assets/b341ef11-803b-49dd-9720-6680f9fe394c">
--------------------------------------------------------------------------------------------------------------------
-#Order Menu
-<img width="307" alt="order_menu" src="https://github.com/user-attachments/assets/e655fec5-7b5c-40b4-95dd-a543903b94d9">
---------------------------------------------------------------------------------------------------------------------
-#Drinks Menu 
-<img width="363" alt="drink_menu" src="https://github.com/user-attachments/assets/f3bfb484-652f-485d-984a-cd1aeabfd468">
---------------------------------------------------------------------------------------------------------------------
-#Chips Menu
-<img width="303" alt="chips_menu" src="https://github.com/user-attachments/assets/56c33887-a38a-439b-b808-8ec39e99587f">
---------------------------------------------------------------------------------------------------------------------
-#Sauces Menu
-<img width="233" alt="sauces" src="https://github.com/user-attachments/assets/60f982fb-c983-4427-beef-2c93a6c3c34d">
-----------------------------------------------------------------------------------------------------------------------
-#Toppings Menu
-<img width="238" alt="toppings" src="https://github.com/user-attachments/assets/93c4961d-b0c4-4d8a-95eb-0e2bbebed62b">
+## Components
+
+### ReceiptManager Class:
+Handles the generation and formatting of receipts. It ensures the receipt includes:
+- Customer name
+- Sandwich details (bread type, toppings, sauces)
+- Total price
+
+### Order Class:
+Manages the specifics of a customer's sandwich order, including the bread, toppings, sauces, and drinks. It calculates the total price and provides order details.
+
+### Main Class:
+Serves as the entry point for the program and provides the text-based menu for interaction. Users can select options to start a new order, view orders, or exit the program.
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Java Development Kit (JDK) installed on your machine.
+- A text editor or IDE for Java development (e.g., IntelliJ IDEA, Eclipse).
+
+### Installation
+1. Clone the repository or download the source code.
+2. Open the project in your IDE.
+3. No external dependencies are required; all code is self-contained.
+4. The program will automatically create a folder called `receipts` to store the generated receipt files.
+
+### Running the Application
+1. Compile the Java files.
+2. Run the **Main class** to start the application.
+3. Follow the on-screen instructions to add items to the order, view the order summary, and generate the receipt.
+
+---
+
+## Usage
+- After starting the application, the user will see the **Home Screen**.
+- They can create a new order, customize their sandwich, and add chips and drinks.
+- The **Checkout Screen** will allow them to review the order and confirm it.
+- After confirmation, the receipt will be generated and saved with a timestamped filename (e.g., `20241115_100709.txt`).
+- The user can view previous orders or start a new one.
+
+### Menu Options:
+1. **Start New Order**: Begin a new sandwich order.
+2. **View Previous Orders**: View a list of completed orders (saved receipts).
+3. **Exit**: Exit the application.
 ---
 
 ## Interesting Code Section
@@ -61,3 +105,8 @@ private static String generateReceiptDesign(String receipt, String userName) {
 
     return receiptBuilder.toString();
 }
+
+--------------------------------------------------------------------------------------------------------
+
+## License
+This project is licensed under the MIT License.
