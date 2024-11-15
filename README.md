@@ -22,7 +22,7 @@ DELI-Dash is a point-of-sale (POS) Java application designed to streamline the s
   - Choose sauces, with options for toasting the sandwich.
 - **Add Chips & Drinks**:
   - Select a chip flavor ($1.50 each).
-  - Choose drink size (Small, Medium, Large) with corresponding prices.
+  - Choose drink size (Small, Medium, Large) with right prices.
 - **Order Review**: View selected items before proceeding to checkout.
 
 ### Checkout Screen:
@@ -76,8 +76,7 @@ Serves as the entry point for the program and provides the text-based menu for i
 
 ### Menu Options:
 1. **Start New Order**: Begin a new sandwich order.
-2. **View Previous Orders**: View a list of completed orders (saved receipts).
-3. **Exit**: Exit the application.
+0. **Exit**: Exit the application.
 ---
 
 ## Interesting Code Section
