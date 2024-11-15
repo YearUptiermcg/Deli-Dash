@@ -2,12 +2,11 @@
               DELI-Dash
           Sandwich Shop Receipt
 ========================================
-Date: 2024-11-15 09:02:22
+Date: 2024-11-15 10:11:35
 ----------------------------------------
-Customer: Tierney
-
-Sandwich (12-inch): $8.50
-Total: $8.50
+Customer: Olivia
+Drink (Large - Water): $3.00
+Total: $3.00
 ----------------------------------------
 Thank you for your order!
 Visit us again soon at DELI-Dash!
