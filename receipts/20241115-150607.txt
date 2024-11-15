@@ -1,0 +1,17 @@
+========================================
+              DELI-cious
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 15:06:07
+----------------------------------------
+Customer: Tierney
+12-inch wrap bread, Toasted: Yes
+Regular Toppings: [lettuce, pickles]
+Premium Meats: [steak]
+Premium Cheeses: [american]
+Sauces: [hot sauce]
+Total: $13.75
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-cious!
+========================================

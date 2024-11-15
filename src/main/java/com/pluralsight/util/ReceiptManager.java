@@ -39,7 +39,7 @@ public class ReceiptManager {
         // Start the receipt design with a header
         StringBuilder receiptBuilder = new StringBuilder();
         receiptBuilder.append("========================================\n");
-        receiptBuilder.append("              DELI-cious\n");
+        receiptBuilder.append("              DELI-Dash\n");
         receiptBuilder.append("          Sandwich Shop Receipt\n");
         receiptBuilder.append("========================================\n");
         receiptBuilder.append("Date: " + currentDate + "\n");
@@ -51,7 +51,7 @@ public class ReceiptManager {
         // Footer with a thank you note
         receiptBuilder.append("\n----------------------------------------\n");
         receiptBuilder.append("Thank you for your order!\n");
-        receiptBuilder.append("Visit us again soon at DELI-cious!\n");
+        receiptBuilder.append("Visit us again soon at DELI-Dash!\n");
         receiptBuilder.append("========================================\n");
 
         return receiptBuilder.toString();
