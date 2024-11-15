@@ -1,0 +1,13 @@
+========================================
+              DELI-Dash
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 06:09:32
+----------------------------------------
+Customer: Olivia
+Drink: Lemonade (Large)
+Total: $2.50
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-Dash!
+========================================

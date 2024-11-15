@@ -1,5 +1,7 @@
-package com.pluralsight;
+package com.pluralsight.order;
 
+// Import the Sandwich class from the food package
+import com.pluralsight.food.Sandwich;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +12,9 @@ public class Order {
         sandwiches = new ArrayList<>();
     }
 
-    public void addSandwich(Sandwich sandwich) {
-        sandwiches.add(sandwich);
+    public void addSandwich(String size, String breadType, double price, List<String> regularToppings, List<String> premiumToppings, boolean toasted) {
+        Sandwich newSandwich = new Sandwich(size, breadType, price, regularToppings, premiumToppings, toasted);
+        sandwiches.add(newSandwich);
     }
 
     public void printOrderDetails() {

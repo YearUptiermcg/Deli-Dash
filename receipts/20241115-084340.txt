@@ -1,0 +1,13 @@
+========================================
+              DELI-Dash
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 08:43:40
+----------------------------------------
+Customer: Tierney
+Drink (Large - Cherry Cola): $3.00
+Total: $3.00
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-Dash!
+========================================

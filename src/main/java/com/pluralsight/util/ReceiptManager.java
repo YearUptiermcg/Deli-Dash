@@ -48,7 +48,7 @@ public class ReceiptManager {
         // Add the order details
         receiptBuilder.append(receipt);
 
-        // Footer with a thank you note
+        //  thank you note
         receiptBuilder.append("\n----------------------------------------\n");
         receiptBuilder.append("Thank you for your order!\n");
         receiptBuilder.append("Visit us again soon at DELI-Dash!\n");

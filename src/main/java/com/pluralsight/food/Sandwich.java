@@ -1,4 +1,5 @@
-package com.pluralsight;
+
+package com.pluralsight.food;
 
 import java.util.List;
 

@@ -1,0 +1,17 @@
+========================================
+              DELI-Dash
+          Sandwich Shop Receipt
+========================================
+Date: 2024-11-15 05:32:59
+----------------------------------------
+Customer: Olivia
+4-inch white bread, Toasted: Yes
+Regular Toppings: [lettuce]
+Premium Meats: [steak]
+Premium Cheeses: [american]
+Sauces: [ranch]
+Total: $7.25
+----------------------------------------
+Thank you for your order!
+Visit us again soon at DELI-Dash!
+========================================
