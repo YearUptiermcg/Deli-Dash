@@ -19,6 +19,7 @@ The **DELI-Dash Sandwich Shop POS System** is a point-of-sale application design
 ## Screenshots
 
 ### Main Menu
+<<<<<<< HEAD
 ![Main Menu](screenshots/main_menu.png)
 
 ### Order Menu
@@ -26,6 +27,15 @@ The **DELI-Dash Sandwich Shop POS System** is a point-of-sale application design
 
 ### Receipt Example
 ![Receipt Example](screenshots/receipt_example.png)
+=======
+![Main Menu](src/screenshots/main_menu.PNG)
+
+### Order Menu
+![Order Menu](src/screenshots/order_menu.PNG)
+
+### Receipt Example
+![Receipt Example](src/screenshots/receipt_example.PNG)
+>>>>>>> 57dd7c538da5a3c21b727c8f5ef344229c89bf90
 
 ---
 
