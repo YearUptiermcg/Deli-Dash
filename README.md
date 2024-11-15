@@ -1,11 +1,11 @@
 # DELI-Dash: Sandwich Shop POS System
 
 ## Project Overview
-DELI-Dash is a point-of-sale (POS) Java application designed to streamline the sandwich ordering process for customers in a sandwich shop. It allows customers to:
-- Customize their sandwiches with different sizes, breads, toppings, and sauces.
-- Add drinks and chips to their orders.
-- View the order summary and confirm or cancel their orders.
-- Generate and save receipts with a timestamped filename for each transaction.
+**DELI-Dash** is a Java POS application that simplifies sandwich ordering for customers. It lets customers:
+-Customize sandwiches with sizes, breads, toppings, and sauces.
+-Add drinks and chips.
+-View and confirm or cancel their order summary.
+-Save receipts with a timestamp for each transaction.
 
 ---
 
